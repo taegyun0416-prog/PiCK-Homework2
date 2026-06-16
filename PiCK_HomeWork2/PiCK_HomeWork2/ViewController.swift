@@ -1,4 +1,5 @@
 import UIKit
+import SnapKit
 
 class ViewController: UIViewController {
     let checkLabel: UILabel = {
@@ -281,111 +282,130 @@ class ViewController: UIViewController {
         class4View.addSubview(class4Label)
         
         
-    
-        NSLayoutConstraint.activate([
-            checkLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 340),
-            checkLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+        checkLabel.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(340)
+            $0.leading.equalToSuperview().offset(24)
+        }
+        
+        jobisView.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(56)
+            $0.leading.equalToSuperview().offset(24)
+            $0.trailing.equalToSuperview().offset(-24)
+            $0.width.equalTo(345)
+            $0.height.equalTo(264)
+        }
+        
+        jobis2024Label.snp.makeConstraints {
+            $0.bottom.equalTo(jobisView).offset(-16)
+            $0.leading.equalTo(jobisView).offset(119)
+        }
+        
+        jobisLabel.snp.makeConstraints {
+            $0.top.equalTo(jobisView).offset(20)
+            $0.leading.equalToSuperview().offset(16)
+        }
+        
+        sliderButton.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(8)
+            $0.trailing.equalToSuperview().offset(-40)
+            $0.width.height.equalTo(28)
             
-            jobisView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 56),
-            jobisView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            jobisView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            jobisView.widthAnchor.constraint(equalToConstant: 345),
-            jobisView.heightAnchor.constraint(equalToConstant: 264),
+        }
+        
+        backButton.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(8)
+            $0.leading.equalToSuperview().offset(41)
+            $0.width.height.equalTo(28)
             
-            jobis2024Label.bottomAnchor.constraint(equalTo: jobisView.bottomAnchor, constant: -16),
-            jobis2024Label.leadingAnchor.constraint(equalTo: jobisView.leadingAnchor, constant: 119),
-            
-            jobisLabel.topAnchor.constraint(equalTo: jobisView.topAnchor, constant: 20),
-            jobisLabel.leadingAnchor.constraint(equalTo: jobisView.leadingAnchor, constant: 16),
-            
-            sliderButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
-            sliderButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
-            sliderButton.widthAnchor.constraint(equalToConstant: 28),
-            sliderButton.heightAnchor.constraint(equalToConstant: 28),
-            
-            backButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
-            backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 41),
-            backButton.widthAnchor.constraint(equalToConstant: 28),
-            backButton.heightAnchor.constraint(equalToConstant: 28),
-            
-            jobisWhiteLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 12.5),
-            jobisWhiteLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 167),
-            
-            chartImage.topAnchor.constraint(equalTo: jobisView.topAnchor, constant: 72),
-            chartImage.leadingAnchor.constraint(equalTo: jobisView.leadingAnchor, constant: 65),
+        }
        
-            mainStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16),
-            mainStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            mainStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
-            mainStackView.heightAnchor.constraint(equalToConstant: 376),
+        jobisWhiteLabel.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(12.5)
+            $0.leading.equalToSuperview().offset(167)
             
+        }
+        
+        chartImage.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(72)
+            $0.leading.equalToSuperview().offset(65)
+        }
+        
+        mainStackView.snp.makeConstraints {
+            $0.bottom.equalTo(view.safeAreaLayoutGuide).offset(-16)
+            $0.leading.equalToSuperview().offset(24)
+            $0.trailing.equalToSuperview().offset(-24)
+            $0.height.equalTo(376)
             
-            circle1View.topAnchor.constraint(equalTo: firstView.safeAreaLayoutGuide.topAnchor, constant: 30),
-            circle1View.leadingAnchor.constraint(equalTo: firstView.leadingAnchor, constant: 42),
-            circle1View.widthAnchor.constraint(equalToConstant: 80),
-            circle1View.heightAnchor.constraint(equalToConstant: 80),
-            
-            circle2View.topAnchor.constraint(equalTo: secondView.safeAreaLayoutGuide.topAnchor, constant: 30),
-            circle2View.leadingAnchor.constraint(equalTo: secondView.leadingAnchor, constant: 42),
-            circle2View.widthAnchor.constraint(equalToConstant: 80),
-            circle2View.heightAnchor.constraint(equalToConstant: 80),
-            
-            circle3View.topAnchor.constraint(equalTo: thirdView.safeAreaLayoutGuide.topAnchor, constant: 30),
-            circle3View.leadingAnchor.constraint(equalTo: thirdView.leadingAnchor, constant: 42),
-            circle3View.widthAnchor.constraint(equalToConstant: 80),
-            circle3View.heightAnchor.constraint(equalToConstant: 80),
-            
-            circle4View.topAnchor.constraint(equalTo: fourthView.safeAreaLayoutGuide.topAnchor, constant: 30),
-            circle4View.leadingAnchor.constraint(equalTo: fourthView.leadingAnchor, constant: 42),
-            circle4View.widthAnchor.constraint(equalToConstant: 80),
-            circle4View.heightAnchor.constraint(equalToConstant: 80),
-            
-            imoge1Label.centerXAnchor.constraint(equalTo: circle1View.centerXAnchor),
-            imoge1Label.centerYAnchor.constraint(equalTo: circle1View.centerYAnchor),
-            
-            imoge2Label.centerXAnchor.constraint(equalTo: circle2View.centerXAnchor),
-            imoge2Label.centerYAnchor.constraint(equalTo: circle2View.centerYAnchor),
-            
-            imoge3Label.centerXAnchor.constraint(equalTo: circle3View.centerXAnchor),
-            imoge3Label.centerYAnchor.constraint(equalTo: circle3View.centerYAnchor),
-            
-            imoge4Label.centerXAnchor.constraint(equalTo: circle4View.centerXAnchor),
-            imoge4Label.centerYAnchor.constraint(equalTo: circle4View.centerYAnchor),
-            
-            class1View.bottomAnchor.constraint(equalTo: firstView.bottomAnchor, constant: -16),
-            class1View.leadingAnchor.constraint(equalTo: firstView.leadingAnchor, constant: 16),
-            class1View.widthAnchor.constraint(equalToConstant: 48),
-            class1View.heightAnchor.constraint(equalToConstant: 34),
-            
-            class2View.bottomAnchor.constraint(equalTo: secondView.bottomAnchor, constant: -16),
-            class2View.leadingAnchor.constraint(equalTo: secondView.leadingAnchor, constant: 16),
-            class2View.widthAnchor.constraint(equalToConstant: 48),
-            class2View.heightAnchor.constraint(equalToConstant: 34),
-            
-            class3View.bottomAnchor.constraint(equalTo: thirdView.bottomAnchor, constant: -16),
-            class3View.leadingAnchor.constraint(equalTo: thirdView.leadingAnchor, constant: 16),
-            class3View.widthAnchor.constraint(equalToConstant: 48),
-            class3View.heightAnchor.constraint(equalToConstant: 34),
-            
-            class4View.bottomAnchor.constraint(equalTo: fourthView.bottomAnchor, constant: -16),
-            class4View.leadingAnchor.constraint(equalTo: fourthView.leadingAnchor, constant: 16),
-            class4View.widthAnchor.constraint(equalToConstant: 48),
-            class4View.heightAnchor.constraint(equalToConstant: 34),
-            
-            class1Label.centerXAnchor.constraint(equalTo: class1View.centerXAnchor),
-            class1Label.centerYAnchor.constraint(equalTo: class1View.centerYAnchor),
-            
-            class2Label.centerXAnchor.constraint(equalTo: class2View.centerXAnchor),
-            class2Label.centerYAnchor.constraint(equalTo: class2View.centerYAnchor),
-            
-            class3Label.centerXAnchor.constraint(equalTo: class3View.centerXAnchor),
-            class3Label.centerYAnchor.constraint(equalTo: class3View.centerYAnchor),
-            
-            class4Label.centerXAnchor.constraint(equalTo: class4View.centerXAnchor),
-            class4Label.centerYAnchor.constraint(equalTo: class4View.centerYAnchor),
-            
-            
-        ])
+        }
+        circle1View.snp.makeConstraints {
+            $0.top.equalTo(firstView.safeAreaLayoutGuide).offset(30)
+            $0.leading.equalToSuperview().offset(42)
+            $0.width.height.equalTo(80)
+        }
+        circle2View.snp.makeConstraints {
+            $0.top.equalTo(secondView.safeAreaLayoutGuide)
+                .offset(30)
+            $0.leading.equalToSuperview().offset(42)
+            $0.width.height.equalTo(80)
+        }
+        circle3View.snp.makeConstraints {
+            $0.top.equalTo(thirdView.safeAreaLayoutGuide).offset(30)
+            $0.leading.equalToSuperview().offset(42)
+            $0.width.height.equalTo(80)
+        }
+        circle4View.snp.makeConstraints {
+            $0.top.equalTo(fourthView.safeAreaLayoutGuide).offset(30)
+            $0.leading.equalToSuperview().offset(42)
+            $0.width.height.equalTo(80)
+        }
+        imoge1Label.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
+        imoge2Label.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
+        imoge3Label.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
+        imoge4Label.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
+        class1View.snp.makeConstraints {
+            $0.bottom.equalToSuperview().offset(-16)
+            $0.leading.equalToSuperview().offset(16)
+            $0.width.equalTo(48)
+            $0.height.equalTo(34)
+        }
+        class2View.snp.makeConstraints {
+            $0.bottom.equalToSuperview().offset(-16)
+            $0.leading.equalToSuperview().offset(16)
+            $0.width.equalTo(48)
+            $0.height.equalTo(34)
+        }
+        class3View.snp.makeConstraints {
+            $0.bottom.equalToSuperview().offset(-16)
+            $0.leading.equalToSuperview().offset(16)
+            $0.width.equalTo(48)
+            $0.height.equalTo(34)
+        }
+        class4View.snp.makeConstraints {
+            $0.bottom.equalToSuperview().offset(-16)
+            $0.leading.equalToSuperview().offset(16)
+            $0.width.equalTo(48)
+            $0.height.equalTo(34)
+        }
+        class1Label.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
+        class2Label.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
+        class3Label.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
+        class4Label.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
     }
 }
 
